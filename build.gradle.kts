@@ -7,6 +7,13 @@ plugins {
     id("org.jetbrains.kotlin.plugin.jpa") version "1.4.32"
 }
 
+//apply plugin: "kotlin-jpa"
+//apply plugin: "kotlin-allopen"
+
+allOpen {
+    annotations("io.micronaut.http.annotation.Controller")
+}
+
 version = "0.1"
 group = "com.zup"
 
@@ -38,9 +45,13 @@ dependencies {
     implementation("io.micronaut:micronaut-validation")
     runtimeOnly("ch.qos.logback:logback-classic")
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
+
+    //JPA
+    implementation("io.micronaut.sql:micronaut-jdbc-hikari")
+    implementation("io.micronaut.sql:micronaut-hibernate-jpa")
+    implementation("mysql:mysql-connector-java:8.0.24")
+
 }
-
-
 application {
     mainClass.set("com.zup.ApplicationKt")
 }
