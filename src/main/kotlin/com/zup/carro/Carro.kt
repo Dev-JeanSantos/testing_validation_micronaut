@@ -1,5 +1,6 @@
 package com.zup.carro
 
+import com.zup.validacao.Placa
 import javax.persistence.*
 import javax.persistence.GenerationType.*
 import javax.validation.constraints.NotBlank
@@ -11,7 +12,7 @@ class Carro(
     val modelo: String?,
 
     @field:NotBlank
-    //@field:Placa
+    @field:Placa
     @Column(nullable = false, unique = true)
     val placa: String?
 )
